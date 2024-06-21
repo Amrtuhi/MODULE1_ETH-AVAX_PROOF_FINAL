@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract odd_even {
+    uint public oddcount;
+
+    function requireOddNumber(uint value) external {
+        require(value % 2 != 0, "The number you inputted is EVEN");
+        ++oddcount;
+    }
+
+    function assertoddNumber(uint value) external {
+        assert(value % 2 != 0);
+        ++oddcount;
+    }
+
+    function revertoddNumber(uint value) external {
+        if (value % 2 == 0) {
+            revert("The number you inputted is EVEN");
+        }
+        ++oddcount;
+    }
+}
